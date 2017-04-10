@@ -1,1 +1,7 @@
 # write what you do not want to organize via git
+myvenv
+__pypache__
+staticfiles
+local_settings.py
+db.sqlite3
+*py[co]
