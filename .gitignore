@@ -5,3 +5,5 @@ staticfiles
 local_settings.py
 db.sqlite3
 *py[co]
+task1_venv
+task1_b2
