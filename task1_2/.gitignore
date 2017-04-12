@@ -12,3 +12,5 @@ task1_2_venv/scrapy_d/gunosynews/project.egg-info
 task1_2_venv/scrapy_d/gunosynews/scrapinghub.yml
 task1_2_venv/scrapy_d/gunosynews/scrapy.cfg
 task1_2_venv/scrapy_d/gunosynews/setup.py
+*~
+

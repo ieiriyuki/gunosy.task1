@@ -14,6 +14,6 @@ class GunosynewsItem(scrapy.Item):
     # pass
 	category = scrapy.Field()
 	title = scrapy.Field()
-	url = scrapy.Field()
-	subcategory = scrapy.Field()
+#	url = scrapy.Field()
+#	subcategory = scrapy.Field()
 	# text = scrapy.Field()

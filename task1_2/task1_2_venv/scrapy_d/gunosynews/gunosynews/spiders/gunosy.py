@@ -23,8 +23,8 @@ class GunosySpider(scrapy.Spider):
             article = GunosynewsItem()
             article['category'] = response.url.split("/")[-1]
             article['title'] = sel.css("div.list_title > a::text").extract_first()
-            article['url'] = sel.css("div.list_title > a::attr('href')").extract_first()
-            article['subcategory'] = sel.css("div.list_text > a::text").extract_first()
+#            article['url'] = sel.css("div.list_title > a::attr('href')").extract_first()
+#            article['subcategory'] = sel.css("div.list_text > a::text").extract_first()
 #            article['text'] = sel.css("div.list_article > a::text").extract()[3]
             yield article
 
