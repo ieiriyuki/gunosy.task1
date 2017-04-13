@@ -2,6 +2,15 @@ import math
 import sys
 import MeCab
 
+# 1 エンタメ
+# 2 スポーツ
+# 3 おもしろ
+# 4 国内
+# 5 海外
+# 6 コラム
+# 7 IT・科学
+# 8 グルメ
+
 class naiveBayes():
     def __init__(self):
         self.catcount = {}        # catcount[cat] appearance of categories
