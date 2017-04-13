@@ -1,11 +1,14 @@
 # write what you do not manage on git
+
 task1_2_venv/bin
+task1_2_venv/db.sqlite3
 task1_2_venv/include
-# task1_2_venv/items_gunosy_3.csv
 task1_2_venv/lib
 task1_2_venv/manage.py
 # task1_2_venv/myapp
+task1_2_venv/blog
 task1_2_venv/pip-selfcheck.json
+task1_2_venv/polls
 task1_2_venv/pyvenv.cfg
 task1_2_venv/scrapy_d/gunosynews/build
 task1_2_venv/scrapy_d/gunosynews/project.egg-info
@@ -13,4 +16,3 @@ task1_2_venv/scrapy_d/gunosynews/scrapinghub.yml
 task1_2_venv/scrapy_d/gunosynews/scrapy.cfg
 task1_2_venv/scrapy_d/gunosynews/setup.py
 *~
-
