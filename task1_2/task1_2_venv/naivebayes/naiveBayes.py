@@ -11,7 +11,7 @@ import MeCab
 # 7 IT・科学
 # 8 グルメ
 
-class naiveBayes():
+class Model():
     def __init__(self):
         self.catcount = {}        # catcount[cat] appearance of categories
         self.wordcount = {}       # wordcount[cat][word] appearance of words in categories
@@ -49,13 +49,13 @@ class naiveBayes():
     def train(self, data):
         category = data[0]
         self.count_category(category)
-        words = self.to_words(data[1]):
+        words = self.to_words(data[1])
         self.count_word(category, words)
 
     def prior_prob(self, category):
         num_of_category = sum(self.catcount.values())
         num_of_data_of_category = self.catcount[category]
-        return num_of_docs_of_category / num_of_category
+        return num_of_data_of_category / num_of_category
 
     def is_word_in_category(self, category, word):
         if word in self.wordcount[category]:
@@ -89,3 +89,6 @@ class naiveBayes():
         categories = list(self.catcount.keys())
         strng = "documents %d, vocabularies %d, categories %d" % (total, len(self.vocabularies), len(categories))
         return strng
+
+if __name__ == "__main__":
+    print("Properly working")
