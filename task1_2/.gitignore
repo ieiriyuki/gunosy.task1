@@ -8,7 +8,6 @@ task1_2_venv/manage.py
 # task1_2_venv/myapp
 task1_2_venv/blog
 task1_2_venv/pip-selfcheck.json
-task1_2_venv/polls
 task1_2_venv/pyvenv.cfg
 task1_2_venv/scrapy_d/gunosynews/build
 task1_2_venv/scrapy_d/gunosynews/project.egg-info
