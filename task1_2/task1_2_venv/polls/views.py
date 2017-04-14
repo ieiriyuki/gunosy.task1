@@ -28,5 +28,5 @@ def vote(request, question_id):
         return render(request, 'polls/detail.html', {'question': question, 'error message': "not select a choie",})
     else:
         selected_choice.votes += 1
-        selected.choice.save()
+        selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
