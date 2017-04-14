@@ -81,7 +81,8 @@ class Model():
             if prob > max:
                 max = prob
                 best = category
-        return self.categories[best]
+        # return self.categories[best]
+        return best
 
     def __str__(self):
         total = sum(self.catcount.values())
