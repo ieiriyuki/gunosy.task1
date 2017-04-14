@@ -56,9 +56,9 @@ def input(request):
         # nb = nbModel
         fit = joblib.load('trained.nb.pkl')
         call = fit.classify(fit.to_words(text))
-
+        # call = 'Under construction'
         # return HttpResponseRedirect(reverse('polls:output', args=(text,)))
-        return render(request, 'poll/output.html', {})
+        return render(request, 'polls/output.html', {'call':' '+call})
 
 def output(request, text):
     data = text
