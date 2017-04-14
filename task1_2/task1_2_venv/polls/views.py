@@ -3,7 +3,10 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.views import generic
 
-from .models import Choice, Question
+import requests, sys
+from bs4 import BeautifulSoup
+from sklearn.externals import joblib
+from .models import Choice, Question, nbModel
 
 # Create your views here.
 
@@ -46,9 +49,17 @@ def input(request):
     if givenurl=='':
         raise Http404("URL is not defined")
     else:
-        print(givenurl)
-        return HttpResponseRedirect(reverse('polls:output', args=(givenurl,)))
+        src = requests.get(givenurl).text
+        soup = BeautifulSoup(src, 'html.parser')
+        text = soup.select('h1')[0].string
 
-def output(request, givenurl):
-    givenurl = givenurl
+        # nb = nbModel
+        fit = joblib.load('trained.nb.pkl')
+        call = fit.classify(fit.to_words(text))
+
+        # return HttpResponseRedirect(reverse('polls:output', args=(text,)))
+        return render(request, 'poll/output.html', {})
+
+def output(request, text):
+    data = text
     return render(request, 'polls/output.html', {})

@@ -2,6 +2,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from .naiveBayes import nbModel
 
 # Create your models here.
 
