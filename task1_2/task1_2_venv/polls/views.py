@@ -6,7 +6,8 @@ from django.views import generic
 import requests, sys
 from bs4 import BeautifulSoup
 from sklearn.externals import joblib
-from .models import Choice, Question, nbModel
+from .models import Choice, Question
+from .naiveBayes import nbModel
 
 # Create your views here.
 
@@ -44,6 +45,7 @@ def vote(request, question_id):
 def find(request):
     return render(request, 'polls/find.html', {})
 
+#train = joblib.load('trained.nb.pkl')
 def input(request):
     givenurl = request.POST['givenurl']
     if givenurl=='':
@@ -54,7 +56,7 @@ def input(request):
         text = soup.select('h1')[0].string
 
         # nb = nbModel
-        fit = joblib.load('trained.nb.pkl')
+        fit = joblib.load('/Users/yuki.ieiri/sources/task1_2/task1_2_venv/polls/trained.nb.pkl')
         call = fit.classify(fit.to_words(text))
         # call = 'Under construction'
         # return HttpResponseRedirect(reverse('polls:output', args=(text,)))
