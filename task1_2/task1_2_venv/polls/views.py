@@ -6,8 +6,7 @@ from django.views import generic
 import requests, sys
 from bs4 import BeautifulSoup
 from sklearn.externals import joblib
-from .models import Choice, Question
-from .naiveBayes import nbModel
+from .models import Choice, Question, naiveBayes
 
 # Create your views here.
 
@@ -56,7 +55,7 @@ def input(request):
         text = soup.select('h1')[0].string
 
         # nb = nbModel
-        fit = joblib.load('/Users/yuki.ieiri/sources/task1_2/task1_2_venv/polls/trained.nb.pkl')
+        fit = joblib.load('./naivebayes/trained.nb.pkl')
         call = fit.classify(fit.to_words(text))
         # call = 'Under construction'
         # return HttpResponseRedirect(reverse('polls:output', args=(text,)))
