@@ -1,7 +1,7 @@
 import sys
 from sklearn.externals import joblib
 # here import learning model naiveBayes
-from .nbModel import naiveBayes
+from nbModel import naiveBayes
 
 # start test here
 args = sys.argv

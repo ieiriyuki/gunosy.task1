@@ -6,7 +6,8 @@ from django.views import generic
 import requests, sys
 from bs4 import BeautifulSoup
 from sklearn.externals import joblib
-from .models import Choice, Question, naiveBayes
+from .models import Choice, Question
+import naiveBayes
 
 # Create your views here.
 
