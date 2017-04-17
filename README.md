@@ -27,5 +27,10 @@
 # If someone inputs URL there and submit it, page moves to output page (outpu.html) using 'input' function
 # Currently 'output' function does not work 
 #
-# To run server please be task1_2_venv and run 'python manage.py runserver'
+# To run server please move into 'task1_2_venv' and run 'python manage.py runserver'
 #
+# Web crawling and scraping is done using files in 'scrapy_d' directory
+# Do 'scrapy crawl gunosy' at 'scrapy_d/gunosynews' directory so as to crawl and scrape
+# 'https://gunosy.com/categories/"number"' is crawled and scraped to obtain category number and article title
+# The code to crawl and scrape is written in 'gunosynews/spider/gunosy.py'
+# 
