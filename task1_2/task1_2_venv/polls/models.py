@@ -1,8 +1,10 @@
-import datetime
+import datetime, sys
 
 from django.db import models
 from django.utils import timezone
-from .naiveBayes import nbModel
+
+sys.path.append('./naivebayes/')
+import naiveBayes
 
 # Create your models here.
 
