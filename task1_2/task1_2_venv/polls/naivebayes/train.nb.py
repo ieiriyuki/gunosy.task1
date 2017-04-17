@@ -1,7 +1,7 @@
 import sys
 from sklearn.externals import joblib
 # here import learning model naiveBayes
-import naiveBayes
+from .nbModel import naiveBayes
 
 # start test here
 args = sys.argv
@@ -11,7 +11,7 @@ if len(args) != 2:
 
 training = args[1]
 input = open(training,"r")
-nb = naiveBayes.naiveBayes()
+nb = naiveBayes()
 for temp in input:
     data = temp.split(',')
     nb.train(data)
