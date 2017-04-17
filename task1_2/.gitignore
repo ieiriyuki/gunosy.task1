@@ -1,5 +1,6 @@
 # write what you do not manage on git
-
+../.DS_Store
+.DS_Store
 task1_2_venv/bin
 task1_2_venv/db.sqlite3
 task1_2_venv/include
