@@ -6,9 +6,9 @@ from django.views import generic
 import requests, sys
 from bs4 import BeautifulSoup
 from sklearn.externals import joblib
-from .models import Choice, Question
-import naiveBayes
+from .models import Choice, Question, naiveBayes
 
+sys.path.append("./naivebayes/")
 # Create your views here.
 
 class IndexView(generic.ListView):
