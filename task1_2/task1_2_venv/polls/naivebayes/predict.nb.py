@@ -10,13 +10,13 @@ from sklearn.externals import joblib
 # 7 IT・科学
 # 8 グルメ
 
-nb = joblib.load('trained.nb.pkl')
 args = sys.argv
-if len(args) != 2:
-    print("You need to specify test data")
+if len(args) != 3:
+    print("You need to specify trained model and test data")
     sys.exit()
 
-test = args[1]
+nb = joblib.load(args[1])
+test = args[2]
 valid = open(test, "r")
 catcount = {}
 correct = {}

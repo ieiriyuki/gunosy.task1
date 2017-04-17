@@ -2,7 +2,7 @@ import math
 import sys
 import MeCab
 
-class Model():
+class naiveBayes():
     def __init__(self):
         self.catcount = {}        # catcount[cat] appearance of categories
         self.wordcount = {}       # wordcount[cat][word] appearance of words in categories
@@ -81,8 +81,8 @@ class Model():
             if prob > max:
                 max = prob
                 best = category
-        # return self.categories[best]
-        return best
+        return self.categories[best]
+        # return best
 
     def __str__(self):
         total = sum(self.catcount.values())

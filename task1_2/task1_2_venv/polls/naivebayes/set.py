@@ -1,20 +1,13 @@
 import math
 import sys
 import MeCab
+from sklearn.externals import joblib
 
-class nbModel():
+class naiveBayes():
     def __init__(self):
-        self.catcount = {}        # catcount[cat] appearance of categories
-        self.wordcount = {}       # wordcount[cat][word] appearance of words in categories
-        self.vocabularies = set() # vocabulary set
-        self.categories = {'1':'エンタメ',
-                           '2': 'スポーツ',
-                           '3':'おもしろ',
-                           '4':'国内',
-                           '5':'海外',
-                           '6':'コラム',
-                           '7':'IT・科学',
-                           '8':'グルメ', }
+        self.catcount = {}
+        self.wordcount = {}
+        self.vocabularies = set()
 
     def to_words(self, sentence):
         mecab = MeCab.Tagger('mecabrc')
@@ -81,7 +74,7 @@ class nbModel():
             if prob > max:
                 max = prob
                 best = category
-        return self.categories[best]
+        return best
 
     def __str__(self):
         total = sum(self.catcount.values())
@@ -89,5 +82,45 @@ class nbModel():
         strng = "documents %d, vocabularies %d, categories %d" % (total, len(self.vocabularies), len(categories))
         return strng
 
+# start test here
+args = sys.argv
+if len(args) != 3:
+    print("You need to specify training and test data")
+    sys.exit()
+
+training = args[1]
+test = args[2]
+
 if __name__ == "__main__":
-    print("Properly working")
+
+    input = open(training,"r")
+    nb = naiveBayes()
+    for temp in input:
+        data = temp.split(',')
+        nb.train(data)
+    input.close()
+
+    print(nb)
+
+    joblib.dump(nb, 'trained.nb.pkl')
+
+    valid = open(test, "r")
+    catcount = {}
+    correct = {}
+    for temp in valid:
+        data = temp.split(',')
+        true = data[0]
+        # init
+        correct.setdefault(true,0)
+        catcount.setdefault(true, 0)
+        catcount[true] += 1
+        # inference
+        call = nb.classify(nb.to_words(data[1]))
+#        print(call + ' ' + temp)
+        # is it correct ?
+        if call == true:
+            correct[true] += 1
+    for i in catcount.keys():
+        strng = "category %s, prior %d, correct %d" % (i, catcount[i], correct[i])
+        print(strng)
+    valid.close()
