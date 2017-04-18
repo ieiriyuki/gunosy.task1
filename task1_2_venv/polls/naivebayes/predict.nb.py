@@ -34,11 +34,12 @@ for temp in valid:
 
 valid.close()
 
+print(end='\t')
 for i in categories:
-    print(categories[i], end=' ')
+    print(categories[i], end='\t')
 print()
 for i in categories:
-    print(categories[i], end=' ')
+    print(categories[i], end='\t')
     for j in categories:
-        print(pred.correct[categories[i]][categories[j]], end=' ')
-print()
+        print(pred.correct[categories[i]][categories[j]], end='\t')
+    print()
