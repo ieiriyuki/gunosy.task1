@@ -1,0 +1,9 @@
+<h1>Category Indicator</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:input' givenurl %}" method="post">
+{% csrf_token %}
+  <input type="url" name="givenurl" value="Target URL" />
+  <input type="submit" value="submit" />
+</form>
