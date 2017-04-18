@@ -1,9 +1,0 @@
-<h1>Category Finder</h1>
-
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-<form action="{% url 'polls:input' %}" method="post">
-{% csrf_token %}
-  Please input a target URL<input type="url" name="givenurl" />
-  <input type="submit" value="submit" />
-</form>
