@@ -1,41 +1,44 @@
 import sys
 from sklearn.externals import joblib
 
-# 1 エンタメ
-# 2 スポーツ
-# 3 おもしろ
-# 4 国内
-# 5 海外
-# 6 コラム
-# 7 IT・科学
-# 8 グルメ
-
 args = sys.argv
 if len(args) != 3:
     print("You need to specify trained model and test data")
     sys.exit()
 
+categories = {'1':'エンタメ','2': 'スポーツ','3':'おもしろ','4':'国内',
+              '5':'海外','6':'コラム','7':'IT・科学','8':'グルメ', }
+
+class prediction():
+    def __init__(self):
+        self.correct = {}
+
+    def count(self,true,call):
+        self.correct.setdefault(true,{})
+        self.correct[true].setdefault(call,0)
+        self.correct[true][call] += 1
+
+pred = prediction()
+for i in categories:
+    for j in categories:
+        pred.count(categories[i],categories[j])
+
 nb = joblib.load(args[1])
 test = args[2]
 valid = open(test, "r")
-catcount = {}
-correct = {}
-categories = {'1':'エンタメ','2': 'スポーツ','3':'おもしろ','4':'国内',
-              '5':'海外','6':'コラム','7':'IT・科学','8':'グルメ', }
 for temp in valid:
     data = temp.split(',')
     true = categories[data[0]]
-    # init
-    correct.setdefault(true, 0)
-    catcount.setdefault(true, 0)
-    catcount[true] += 1
-    # inference
     call = nb.classify(nb.to_words(data[1]))
-    # print(call + ' ' + temp)
-    # is it correct ?
-    if call == true:
-        correct[true] += 1
-for i in catcount.keys():
-    strng = "category %s, prior %d, correct %d" % (i, catcount[i], correct[i])
-    print(strng)
+    pred.count(true,call)
+
 valid.close()
+
+for i in categories:
+    print(categories[i], end=' ')
+print()
+for i in categories:
+    print(categories[i], end=' ')
+    for j in categories:
+        print(pred.correct[categories[i]][categories[j]], end=' ')
+print()
