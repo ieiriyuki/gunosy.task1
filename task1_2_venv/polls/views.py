@@ -56,7 +56,7 @@ def input(request):
         text = soup.select('h1')[0].string
 
         # nb = nbModel
-        fit = joblib.load('./naivebayes/trained.nb.pkl')
+        fit = joblib.load('./naivebayes/storedmodel.pkl')
         call = fit.classify(fit.to_words(text))
         # call = 'Under construction'
         # return HttpResponseRedirect(reverse('polls:output', args=(text,)))
