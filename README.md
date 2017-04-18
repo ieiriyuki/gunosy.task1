@@ -4,10 +4,10 @@ This is a repository containing files for task 1.
 In task 1 we aim to create an application that
 returns the categories of articles give their urls.
 
-task1_b3 is the newset branch (2017/4/17 present)
+task1_b3 is the newset branch (2017/4/18 present)
 
 * How to use
-In task1_2/task1_2_venv there are primary files and directories for this application
+In task1_2_venv there are primary files and directories for this application
 
 * Validate naive Bayes
 To test naive Bayes performance, change directory in to polls/naivebayes
@@ -34,7 +34,7 @@ Currently 'output' function does not work
 To run server please move into 'task1_2_venv' and run 'python manage.py runserver'
 
 * Web crawl and scrape
-Web crawling and scraping is done using files in 'scrapy_d' directory
-Do 'scrapy crawl gunosy' at 'scrapy_d/gunosynews' directory so as to crawl and scrape
+Web crawling and scraping is done using files in 'gunosynews' directory
+Do 'scrapy crawl gunosy' at 'gunosynews' directory so as to crawl and scrape
 'https://gunosy.com/categories/"number"' is crawled and scraped to obtain category number and article title
 The code to crawl and scrape is written in 'gunosynews/spider/gunosy.py'
