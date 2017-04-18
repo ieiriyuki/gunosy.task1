@@ -5,8 +5,8 @@ from nbModel import naiveBayes
 
 # start test here
 args = sys.argv
-if len(args) != 2:
-    print("You need to specify training data")
+if len(args) != 3:
+    print("You need to specify training data and a file to store it")
     sys.exit()
 
 training = args[1]
@@ -18,4 +18,5 @@ for temp in input:
 input.close()
 
 print(nb)
-joblib.dump(nb,'trained.nb.pkl')
+store = args[2]
+joblib.dump(nb,store)
