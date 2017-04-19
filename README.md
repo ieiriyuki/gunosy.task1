@@ -12,6 +12,7 @@ In task1_2_venv there are primary files and directories for this application
 * Validate naive Bayes
 To test naive Bayes performance, change directory in to polls/naivebayes
 Then run 'python predict.nb.py storedmodel.pkl testdata.csv'
+The result of test is shown in result.tsv
 This will return the matrix of true and called categories.
 Each row shows true models and each column shows called categories
          エンタメ スポーツ ... <- call
