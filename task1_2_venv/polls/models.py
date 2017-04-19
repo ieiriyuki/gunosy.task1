@@ -5,8 +5,8 @@ from django.utils import timezone
 
 from sklearn.externals import joblib
 
-sys.path.append(os.path.join(os.path.abspath(__file__),'polls/naivebayes'))
-# from nbModel import naiveBayes
+sys.path.append(os.path.abspath('naivebayes'))
+from nbModel import naiveBayes
 
 
 # Create your models here.
@@ -30,12 +30,11 @@ class Choice(models.Model):
         return self.choice_text
 
 class Fit():
-    dir = os.path.abspath('polls/naivebayes')
+    dir = os.path.abspath('naivebayes')
     name = 'storedmodel.pkl'
-    model = joblib.load(os.path.join(dir,name))
+
+    def __init__(self):
+        self.model = joblib.load(os.path.join(dir,name))
 
     def loadmodel():
-        return model
-
-    def pypo():
-        print(os.path.join(dir,name))
+        return self.model
