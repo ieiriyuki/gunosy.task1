@@ -3,12 +3,11 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.views import generic
 
-import requests, sys
+import requests, sys, os
 from bs4 import BeautifulSoup
 from sklearn.externals import joblib
-from .models import Choice, Question, naiveBayes
-
-sys.path.append("./naivebayes/")
+from .models import Choice, Question, Fit
+#from nbModel import *
 # Create your views here.
 
 class IndexView(generic.ListView):
@@ -45,8 +44,8 @@ def vote(request, question_id):
 def find(request):
     return render(request, 'polls/find.html', {})
 
-#train = joblib.load('trained.nb.pkl')
 def input(request):
+    fit = Fit
     givenurl = request.POST['givenurl']
     if givenurl=='':
         raise Http404("URL is not defined")
@@ -55,11 +54,9 @@ def input(request):
         soup = BeautifulSoup(src, 'html.parser')
         text = soup.select('h1')[0].string
 
-        # nb = nbModel
-        fit = joblib.load('./naivebayes/storedmodel.pkl')
-        call = fit.classify(fit.to_words(text))
-        # call = 'Under construction'
-        # return HttpResponseRedirect(reverse('polls:output', args=(text,)))
+        fit.pypo()
+        pred = fit.loadmodel()
+        call = pred.classify(pred.to_words(text))
         return render(request, 'polls/output.html', {'call':' '+call})
 
 def output(request, text):
