@@ -7,14 +7,10 @@ class naiveBayes():
         self.catcount = {}        # catcount[cat] appearance of categories
         self.wordcount = {}       # wordcount[cat][word] appearance of words in categories
         self.vocabularies = set() # vocabulary set
-        self.categories = {'1':'エンタメ',
-                           '2': 'スポーツ',
-                           '3':'おもしろ',
-                           '4':'国内',
-                           '5':'海外',
-                           '6':'コラム',
-                           '7':'IT・科学',
-                           '8':'グルメ', }
+        self.categories = {'1':'エンタメ','2': 'スポーツ',
+                           '3':'おもしろ','4':'国内',
+                           '5':'海外','6':'コラム',
+                           '7':'IT・科学','8':'グルメ', }
 
     def to_words(self, sentence):
         mecab = MeCab.Tagger('mecabrc')
