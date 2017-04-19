@@ -11,19 +11,25 @@ In task1_2_venv there are primary files and directories for this application
 
 * Validate naive Bayes
 To test naive Bayes performance, change directory in to polls/naivebayes
-Then run 'python predict.nb.py trained.nb.pkl item_gunosy_9.csv'
-This will return 'category name, its test number, the number of correct'
+Then run 'python predict.nb.py storedmodel.pkl testdata.csv'
+This will return the matrix of true and called categories.
+Each row shows true models and each column shows called categories
+         エンタメ スポーツ ... <- call
+エンタメ a        b
+スポーツ c        d
+...
+true
 
 * How to train
 Naive Bayes is trained using train.nb.py with naiveBayes.py module.
-To train, run 'python train.nb.py item_gunosy_7.csv'
-This will generate 'trained.nb.pkl' that stores a trained model.
+naiveBayes.py contains naiveBayes class to analyze words, store data, construct model, and do prediction
+To train, run 'python train.nb.py traindata.csv storedmodel.pkl'
+You can choose other name of *.pkl file that stores trained model
 
-item_gunosy_N.csv includes category number and title
-traindata.csv and testdata.csv have also the same format and can be used for training and test
+traindata.csv and testdata.csv include category numbers 1..8 and article titles
 
 * Http and server settings
-In 'polls/' directory models.py loads 'naivebayes/naiveBayes.py' module
+In 'polls/' directory models.py loads 'naivebayes/nbModel.py' module and naiveBayes class
 127.0.1:8000/ shows two links 'What's up?' and 'Find a category?'
 Choose the latter
 Then views.py contains functions 'find' and 'input'
