@@ -6,7 +6,7 @@ from django.utils import timezone
 from sklearn.externals import joblib
 
 sys.path.append(os.path.abspath('naivebayes'))
-from nbModel import naiveBayes
+from .nbModel import naiveBayes
 
 
 # Create your models here.

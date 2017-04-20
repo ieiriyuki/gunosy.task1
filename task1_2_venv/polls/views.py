@@ -8,8 +8,9 @@ from bs4 import BeautifulSoup
 from sklearn.externals import joblib
 from .models import Choice, Question#, Fit
 
-sys.path.append(os.path.abspath('naivebayes'))
-from nbModel import naiveBayes
+sys.path.append(os.path.abspath('/naivebayes'))
+#from nbModel import naiveBayes
+from .models import naiveBayes
 
 # Create your views here.
 
