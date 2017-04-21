@@ -1,4 +1,5 @@
 # write what you do not want to organize via git
+task1_2_venv/bin
 task1_2_venv/db.sqlite3
 task1_2_venv/include
 task1_2_venv/lib
