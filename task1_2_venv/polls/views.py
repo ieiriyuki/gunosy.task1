@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from sklearn.externals import joblib
 from .models import Choice, Question#, Fit
 
-sys.path.append(os.path.abspath('/naivebayes'))
+#sys.path.append(os.path.abspath('/naivebayes'))
 #from nbModel import naiveBayes
 from .models import naiveBayes
 
@@ -59,7 +59,7 @@ def input(request):
         text = soup.select('h1')[0].string
 
         #fit.pypo()
-        dir = os.path.abspath('naivebayes')
+        dir = os.path.abspath('polls/naivebayes')
         name = 'storedmodel.pkl'
         pred = joblib.load(os.path.join(dir,name))
         call = pred.classify(pred.to_words(text))
